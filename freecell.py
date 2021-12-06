@@ -23,6 +23,9 @@ class PlayingCard:
         number = d[self.number] if self.number in d.keys() else self.number
         return f'{self.suit.suit}{number}'
 
+    def __repr__(self):
+        return self.__str__()
+
 
 class Foundation:
     def __init__(self, fill: bool = False):
