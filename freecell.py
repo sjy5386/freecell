@@ -52,6 +52,9 @@ class LineStack:
         if len(self.stack) > 0:
             self.stack.pop()
 
+    def __str__(self):
+        return self.stack.__str__()
+
 
 class FreeCell:
     def __init__(self):
