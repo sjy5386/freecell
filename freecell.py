@@ -39,6 +39,20 @@ class Foundation:
             pile.append(element)
 
 
+class LineStack:
+    def __init__(self):
+        self.stack = []
+
+    def push(self, element: PlayingCard):
+        if len(self.stack) == 0 or (
+                self.stack[-1].number == element.number + 1 and self.stack[-1].suit.colored != element.suit.colored):
+            self.stack.append(element)
+
+    def pop(self):
+        if len(self.stack) > 0:
+            self.stack.pop()
+
+
 class FreeCell:
     def __init__(self):
         self.cell = []
