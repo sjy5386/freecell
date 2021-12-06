@@ -38,6 +38,10 @@ class Foundation:
         if (len(pile) > 0 and pile[-1] == element.number - 1) or element.number == 1:
             pile.append(element)
 
+    def __str__(self):
+        return list(map(lambda e: e[-1] if len(e) > 0 else None,
+                        [self.piles[member] for name, member in Suit.__members__.items()])).__str__()
+
 
 class LineStack:
     def __init__(self):
