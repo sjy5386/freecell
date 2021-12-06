@@ -94,11 +94,15 @@ class FreeCellGame:
         self.line_stacks = [LineStack() for i in range(8)]
         self.free_cell = FreeCell()
 
+        def pop_from_foundation():
+            return self.foundation.piles[
+                random.choice(list(filter(lambda e: len(self.foundation.piles[e]) > 0, list(Suit))))].pop()
+
         for i in range(6):
             for j in range(len(self.line_stacks)):
-                self.line_stacks[j].stack.append(self.foundation.piles[random.choice(list(Suit))].pop())
+                self.line_stacks[j].stack.append(pop_from_foundation())
         for i in range(len(self.line_stacks) // 2):
-            self.line_stacks[i].stack.append(self.foundation.piles[random.choice(list(Suit))].pop())
+            self.line_stacks[i].stack.append(pop_from_foundation())
 
     def __str__(self):
         return f'Foundations: {self.foundation}\nFree Cells: {self.free_cell}\n' + '\n'.join(
