@@ -68,6 +68,9 @@ class FreeCell:
         if 0 <= index < len(self.cell):
             return self.cell.pop(index)
 
+    def __str__(self):
+        return self.cell.__str__()
+
 
 class FreeCellGame:
     def __init__(self):
