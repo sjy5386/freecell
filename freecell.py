@@ -10,3 +10,14 @@ class Suit(Enum):
     def __init__(self, name: str, colored: bool):
         self.name = name
         self.colored = colored
+
+
+class PlayingCard:
+    def __init__(self, suit: Suit, number: int):
+        self.suit = suit
+        self.number = number
+
+    def __str__(self):
+        d = {1: 'A', 11: 'J', 12: 'Q', 13: 'K'}
+        number = d[self.number] if self.number in d.keys() else self.number
+        return f'{self.suit}{number}'
