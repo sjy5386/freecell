@@ -38,7 +38,7 @@ class Foundation:
 
     def push(self, element: PlayingCard):
         pile = self.piles[element.suit]
-        if (len(pile) > 0 and pile[-1] == element.number - 1) or element.number == 1:
+        if (len(pile) > 0 and pile[-1].number == element.number - 1) or element.number == 1:
             pile.append(element)
 
     def fill(self):
