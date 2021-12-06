@@ -6,7 +6,7 @@ class Suit(Enum):
     SPADE = ('♤', False)
     HEART = ('♥', True)
     DIAMOND = ('◆', True)
-    Club = ('♧', False)
+    CLUB = ('♧', False)
 
     def __init__(self, suit: str, colored: bool):
         self.suit = suit
