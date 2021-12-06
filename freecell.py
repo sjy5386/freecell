@@ -2,14 +2,15 @@ from enum import Enum
 
 
 class Suit(Enum):
-    SPADE = ('Spade', False)
-    HEART = ('Heart', True)
-    DIAMOND = ('Diamond', True)
-    Club = ('Club', False)
+    SPADE = ('Spade', False, '♤')
+    HEART = ('Heart', True, '♥')
+    DIAMOND = ('Diamond', True, '◆')
+    Club = ('Club', False, '♧')
 
-    def __init__(self, name: str, colored: bool):
+    def __init__(self, name: str, colored: bool, suit: str):
         self.name = name
         self.colored = colored
+        self.suit = suit
 
 
 class PlayingCard:
@@ -20,4 +21,4 @@ class PlayingCard:
     def __str__(self):
         d = {1: 'A', 11: 'J', 12: 'Q', 13: 'K'}
         number = d[self.number] if self.number in d.keys() else self.number
-        return f'{self.suit}{number}'
+        return f'{self.suit.suit}{number}'
