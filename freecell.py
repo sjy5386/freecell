@@ -25,18 +25,27 @@ class PlayingCard:
 
 
 class Foundation:
-    def __init__(self):
-        self.piles = {
-            Suit.SPADE: [],
-            Suit.HEART: [],
-            Suit.DIAMOND: [],
-            Suit.Club: []
-        }
+    def __init__(self, fill: bool = False):
+        self.piles = {}
+        for name, member in Suit.__members__.items():
+            self.piles[member] = []
+
+        if fill:
+            self.fill()
 
     def push(self, element: PlayingCard):
         pile = self.piles[element.suit]
         if (len(pile) > 0 and pile[-1] == element.number - 1) or element.number == 1:
             pile.append(element)
+
+    def fill(self):
+        for name, member in Suit.__members__.items():
+            for i in range(1, 14):
+                self.push(PlayingCard(member, i))
+
+    def empty(self):
+        for k, v in self.piles.items():
+            v.clear()
 
     def __str__(self):
         return list(map(lambda e: e[-1] if len(e) > 0 else None,
