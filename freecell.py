@@ -3,15 +3,14 @@ from enum import Enum
 
 
 class Suit(Enum):
-    SPADE = ('Spade', False, '♤')
-    HEART = ('Heart', True, '♥')
-    DIAMOND = ('Diamond', True, '◆')
-    Club = ('Club', False, '♧')
+    SPADE = ('♤', False)
+    HEART = ('♥', True)
+    DIAMOND = ('◆', True)
+    Club = ('♧', False)
 
-    def __init__(self, name: str, colored: bool, suit: str):
-        self.name = name
-        self.colored = colored
+    def __init__(self, suit: str, colored: bool):
         self.suit = suit
+        self.colored = colored
 
 
 class PlayingCard:
