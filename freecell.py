@@ -64,3 +64,10 @@ class FreeCell:
     def pop(self, index: int):
         if 0 <= index < len(self.cell):
             return self.cell.pop(index)
+
+
+class FreeCellGame:
+    def __init__(self):
+        self.foundation = Foundation()
+        self.line_stacks = [LineStack() for i in range(8)]
+        self.free_cell = FreeCell()
