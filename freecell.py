@@ -24,6 +24,21 @@ class PlayingCard:
         return f'{self.suit.suit}{number}'
 
 
+class Foundation:
+    def __init__(self):
+        self.piles = {
+            Suit.SPADE: [],
+            Suit.HEART: [],
+            Suit.DIAMOND: [],
+            Suit.Club: []
+        }
+
+    def push(self, element: PlayingCard):
+        pile = self.piles[element.suit]
+        if (len(pile) > 0 and pile[-1] == element.number - 1) or element.number == 1:
+            pile.append(element)
+
+
 class FreeCell:
     def __init__(self):
         self.cell = []
