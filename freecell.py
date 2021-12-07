@@ -109,7 +109,7 @@ class FreeCell:
         if len(self.cell) < 4:
             self.cell.append(element)
 
-    def pop(self, index: int):
+    def pop(self, index: int) -> Optional[PlayingCard]:
         if 0 <= index < len(self.cell):
             return self.cell.pop(index)
 
