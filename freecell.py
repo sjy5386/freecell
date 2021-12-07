@@ -27,6 +27,12 @@ class PlayingCard:
         return self.__str__()
 
 
+class FoundationSequenceError(Exception):
+    def __init__(self):
+        super(FoundationSequenceError, self).__init__(
+            'Foundation piles must be started with an Ace and built up in single suit, from Ace to King.')
+
+
 class Foundation:
     def __init__(self, fill: bool = False):
         self.piles = {}
