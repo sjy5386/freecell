@@ -1,5 +1,6 @@
 import random
 from enum import Enum
+from typing import Optional
 
 
 class Suit(Enum):
@@ -79,13 +80,16 @@ class LineStack:
         self.stack = []
 
     def push(self, element: PlayingCard):
-        if len(self.stack) == 0 or (
-                self.stack[-1].number == element.number + 1 and self.stack[-1].suit.colored != element.suit.colored):
-            self.stack.append(element)
-
-    def pop(self):
         if len(self.stack) > 0:
-            self.stack.pop()
+            if self.stack[-1].suit.colored == element.suit.colored:
+                raise ColorError
+            elif self.stack[-1].number != element.number + 1:
+                raise SequenceError
+        self.stack.append(element)
+
+    def pop(self) -> Optional[PlayingCard]:
+        if len(self.stack) > 0:
+            return self.stack.pop()
 
     def __str__(self):
         return self.stack.__str__()
