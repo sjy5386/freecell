@@ -83,6 +83,12 @@ class LineStack:
         return self.stack.__str__()
 
 
+class SpaceError(Exception):
+    def __init__(self, trying: int, free: int = 1):
+        super(SpaceError, self).__init__(
+            f'You are trying to move {trying} cards. You only have enough free space to move {free} card(s).')
+
+
 class FreeCell:
     def __init__(self):
         self.cell = []
