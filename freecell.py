@@ -55,6 +55,11 @@ class Foundation:
                         [self.piles[member] for name, member in Suit.__members__.items()])).__str__()
 
 
+class ColorError(Exception):
+    def __init__(self):
+        super(ColorError, self).__init__('Card colors in columns must alternate between red and black.')
+
+
 class LineStack:
     def __init__(self):
         self.stack = []
