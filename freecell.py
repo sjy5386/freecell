@@ -60,6 +60,12 @@ class ColorError(Exception):
         super(ColorError, self).__init__('Card colors in columns must alternate between red and black.')
 
 
+class SequenceError(Exception):
+    def __init__(self):
+        super(SequenceError, self).__init__(
+            'You can only put a card on another card if it is the next card in sequence. The order is: King, Queen, Jack, 10, 9, 8, 7, 6, 5, 4, 3, 2, Ace.')
+
+
 class LineStack:
     def __init__(self):
         self.stack = []
